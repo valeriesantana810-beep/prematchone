@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-navy text-[#F5F3EE] font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-gold/30 text-white;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply max-w-6xl mx-auto px-4 sm:px-6;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-navy hover:bg-gold-strong focus:ring-gold px-5 py-3;
+  }
+  .btn-green {
+    @apply btn bg-success text-white hover:bg-success-500 focus:ring-success px-5 py-3;
+  }
+  .btn-royal {
+    @apply btn bg-royal text-white hover:bg-royal-400 focus:ring-royal px-5 py-3;
+  }
+  .btn-ghost {
+    @apply btn bg-white/5 text-white hover:bg-white/10 border border-line px-5 py-3;
+  }
+  .btn-outline {
+    @apply btn bg-transparent border-2 border-gold/60 text-gold hover:bg-gold/10 px-5 py-3;
+  }
+  .card {
+    @apply bg-surface border border-line rounded-md backdrop-blur-sm;
+  }
+  .card-2 {
+    @apply bg-surface-2 border border-line rounded-md backdrop-blur-sm;
+  }
+  .input {
+    @apply w-full bg-surface-2 border border-line rounded-md px-4 py-3 text-[#F5F3EE] placeholder-muted focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors;
+  }
+  .label {
+    @apply block text-sm font-medium text-muted mb-1.5;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold;
+  }
+  .tab-active {
+    @apply bg-gold text-navy;
+  }
+  .tab-inactive {
+    @apply bg-white/5 text-muted hover:bg-white/10 hover:text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .bg-grid {
+    background-image: linear-gradient(rgba(217, 200, 122, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(217, 200, 122, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .hero-radial {
+    background: radial-gradient(ellipse at 70% 40%, #1B0E86 0%, #0B0730 70%);
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-slip, .print-slip * {
+    visibility: visible;
+  }
+  .print-slip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
